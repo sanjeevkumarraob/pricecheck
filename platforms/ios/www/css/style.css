@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+
+.hotel-page {
+    background: url("../img/hotel-bg.jpg");
+    background-size: cover;
+    color: #fff;
+}
+
+.hotel-page h1 {
+    color:#fff;
+}
+
+.card {
+    border-radius: 8px;
+    opacity: 0.8;
+}

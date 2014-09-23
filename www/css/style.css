@@ -1,0 +1,145 @@
+/* Empty. Add your own CSS if you like */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/**
+ * Header
+ */
+#header {
+  background-color: transparent !important;
+  height: 44px;
+}
+
+
+.page-bg {
+    background: url("../img/hotel-bg.jpg");
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+/*    font-weight: 300;*/
+    color: #fff;
+}
+
+.hotel-page h1 {
+    font-family: 'Open Sans', sans-serif;
+    color:#fff;
+}
+.text-yellow{
+    color: #E6E600;
+}
+
+.frosted-glass {
+    opacity: 0.95;
+}
+
+.events-slider-images {
+    height:300px;
+    width:100%;
+}
+
+.capitalize-text {
+    text-transform: capitalize;
+}
+
+.now-style-card {
+  position:relative;
+  z-index:2;
+}
+
+.now-style-card {
+  padding:1.5rem;
+  box-shadow:0 0px 1px 1px #aaa;
+  background:white;
+  margin:1rem 1rem 1rem;
+  border-radius:2px;
+  user-select:none;
+  animation:fly-in-from-left .5s 1s ease both;
+  transform-origin:top left;
+}
+.now-style-card:nth-child(even){
+  animation-name:fly-in-from-right;
+  animation-delay:1.1s;
+ transform-origin:top right;
+}
+/*
+.now-style-card:after {
+  position:absolute;
+  font-size:.9rem;
+  top:1.5rem;
+  right:1rem;
+  content:"i";
+  border:thin solid gray;
+  color:gray;
+  width:1rem;
+  line-height:1rem;
+  text-align:center;
+  border-radius:50%;
+  pointer-events:none;
+}
+*/
+
+.map {
+  height:12rem;
+  background:whitesmoke;
+  margin:.5rem 0 0 -1.5rem;
+  width:28rem;
+
+}
+
+.my-item {
+    left: 0;
+  right: 0;
+}
+
+.card-image-size {
+    height:80px;
+}
+
+.search-home-container {
+    padding: 60px 30px;
+}
+
+.home-category-container{
+
+
+}
+
+.home-category-container .scroll-list{
+
+
+}
+
+.home-category-container .item-divider{
+     border-color: #cc2311;
+    background-color: #ef4e3a;
+    color: #fff;
+
+}
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+.pull-right {
+    float:right;
+}
+
+
+.search-home-container .item-input-inset {
+display: -webkit-box;
+display: -webkit-flex;
+display: -moz-box;
+display: -moz-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+-moz-align-items: center;
+align-items: center;
+position: relative;
+overflow: hidden;
+padding: 0.66667px;
+}
