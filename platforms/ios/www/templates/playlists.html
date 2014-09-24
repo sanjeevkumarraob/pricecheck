@@ -1,12 +1,41 @@
-<ion-view title="Playlists">
+<ion-view title="Categories">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header">
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
+  <ion-content class="has-header page-bg">
+      <div class="search-home-container">
+      <div class="list list-inset">
+          <div class="item item-input-inset">
+          <label class="item-input">
+<!--    <i class="icon ion-search placeholder-icon"></i>-->
+    <input type="text" placeholder="Search any products" ng-model="searchProduct">
+      
+  </label>
+              <a class="button button-clear pull-right" type="submit" href="#/app/singleproduct/{{searchProduct}}">
+      <i class="icon ion-search"></i>
+    </a>
+          </div>
+  
+      
+</div>
+          </div>
+
+
+     <div class="home-category-container">
+<ion-list >
+     <ion-item class="item item-divider">
+    Categories
+    </ion-item>
+      <ion-item ng-repeat="category in categories" href="#/app/category/{{category}}" class="frosted-glass capitalize-text scroll-list">
+        {{category | splitStrings}}
       </ion-item>
     </ion-list>
+          </div>
+
+
+
   </ion-content>
+
+
+
 </ion-view>

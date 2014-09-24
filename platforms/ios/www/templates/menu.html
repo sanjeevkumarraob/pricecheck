@@ -1,42 +1,50 @@
 <ion-side-menus>
 
   <ion-pane ion-side-menu-content>
-    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+    <ion-nav-bar  class="nav-title-slide-ios7 bar-positive ">
       <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-stable">
-      <h1 class="title">Categories</h1>
+    <header class="bar bar-header bar-dark">
+      <h1 class="title">Settings</h1>
     </header>
     <ion-content class="has-header">
       <ion-list>
-           <ion-item nav-clear menu-close href="#/app/events">
-          Event Details
+          <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/home">
+         <i class="icon ion-home"></i> Home
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/account">
-          My Account
+           <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/browse">
+         <i class="icon ion-grid"></i> Browse
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/sessions">
-          My Sessions
+          <!--
+
+           <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/events">
+         <i class="icon ion-calendar"></i> Attendance
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/venue">
-          Venue
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/sessions">
+          <i class="icon ion-monitor"></i> My Stats
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/social">
-          Social
+-->
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/venue">
+          <i class="icon ion-settings"></i> App Settings
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/speakers">
-          Speakers
+<!--
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/social">
+          <i class="icon ion-cloud"></i>Social
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/favourites">
-          Favourites
+-->
+<!--
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/speakers">
+          <i class="icon ion-person-stalker"></i> Speakers
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+-->
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/favourites">
+          <i class="icon ion-heart"></i> Favourites
         </ion-item>
+
       </ion-list>
     </ion-content>
   </ion-side-menu>

@@ -4,7 +4,10 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.filters'])
+.constant('USER', 'sanjeevk')
+
+.constant('KEY', 'AXKNSFSFJICCMDEM')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -34,7 +37,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/events",
       views: {
         'menuContent' :{
-          templateUrl: "templates/events.html"
+          templateUrl: "templates/events.html",
+            
+        }
+      }
+    })
+  .state('app.sessions', {
+      url: "/sessions",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/sessions.html"
+        }
+      }
+    })
+  .state('app.venue', {
+      url: "/venue",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/venue.html"
         }
       }
     })
@@ -51,30 +71,50 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/browse",
       views: {
         'menuContent' :{
-          templateUrl: "templates/browse.html"
+          templateUrl: "templates/browse.html",
+            controller:'BrowseProductCtrl'
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
+    .state('app.home', {
+      url: "/home",
       views: {
         'menuContent' :{
           templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          controller: 'CategoriesCtrl'
+        }
+      }
+    })
+  .state('app.categoryname', {
+      url: "/category/:productCategoryName",
+      views: {
+        'menuContent' :{
+            templateUrl: "templates/products.html",
+          controller: 'CategoryNameCtrl'
+        }
+      }
+    })
+  
+  .state('app.productname', {
+      url: "/singleproduct/:productName",
+      views: {
+        'menuContent' :{
+            templateUrl: "templates/search.html",
+          controller: 'SearchProductCtrl'
         }
       }
     })
 
     .state('app.single', {
-      url: "/playlists/:playlistId",
+      url: "/products/:productName&:section",
       views: {
         'menuContent' :{
-          templateUrl: "templates/playlist.html",
-          controller: 'PlaylistCtrl'
+          templateUrl: "templates/productlist.html",
+          controller: 'ProductlistCtrl'
         }
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
 

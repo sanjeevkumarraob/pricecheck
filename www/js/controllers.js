@@ -40,10 +40,10 @@ angular.module('starter.controllers', [])
     .controller('CategoriesCtrl', function ($scope, $http, $q) {
         'use strict';
         $scope.categories = {};
-        var categories = localStorage !== null ? localStorage["categories"] : null;
-        if (categories !== null && JSON !== null) {
+        var categories = localStorage != null ? localStorage["categories"] : null;
+        if (categories != null && JSON != null) {
             try {
-                if (categories.indexOf(",") !== -1) {
+                if (categories.indexOf(",") != -1) {
                     $scope.categories = categories.split(",");
                 } else {
                     $scope.categories = categories.split();
@@ -103,7 +103,7 @@ angular.module('starter.controllers', [])
                 $scope.productCategory = data.product;
                 $scope.hide();
             });
-            }            
+            }
         } else {
             $http({
                 method: "get",
@@ -168,6 +168,10 @@ angular.module('starter.controllers', [])
             $scope.productDetails = data.product[0];
             $scope.hide();
         });
+
+        $scope.openBrowser = function (url) {
+          var ref = window.open(url, '_system');
+        }
     })
 
 
@@ -201,7 +205,7 @@ angular.module('starter.controllers', [])
             }else{
                 $scope.productDetails = data.product[0];
             }
-            
+
             $scope.hide();
         });
     })
