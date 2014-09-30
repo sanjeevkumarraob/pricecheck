@@ -83,13 +83,7 @@ angular.module('starter.controllers', [])
         if (productCategory != null && JSON != null) {
             if(JSON.parse(productCategory)[0].section == $scope.productCategoryName){
                 try {
-                    var data = JSON.parse(productCategory)
-                    for(var i=0;i<data.length;i++){
-                    if(data[i].stores.length == 0){
-                        data.splice(i,1);
-                    }
-                }
-                    $scope.productCategory = data;
+                    $scope.productCategory = JSON.parse(productCategory);
                     $scope.hide();
                 } catch (err) {
             // ignore errors while loading...
@@ -106,15 +100,10 @@ angular.module('starter.controllers', [])
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage["productCategory"] = JSON.stringify(data.product);
                 }
-                    for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
-                    }
-                }
                 $scope.productCategory = data.product;
                 $scope.hide();
             });
-            }            
+            }
         } else {
             $http({
                 method: "get",
@@ -126,11 +115,6 @@ angular.module('starter.controllers', [])
             }).success(function (data) {
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage.setItem("productCategory", JSON.stringify(data.product));
-                }
-                for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
-                    }
                 }
                 $scope.productCategory = data.product;
                 $scope.hide();
@@ -161,13 +145,8 @@ angular.module('starter.controllers', [])
 
     .controller('ProductlistCtrl', function ($scope, $stateParams, $http, USER, KEY, $ionicLoading) {
         'use strict';
-        $scope.productName = $stateParams.productName.split(" - ").join("+").split(" ").join("+").split("-").join("+");
-//    model = model.split(" - ").join("+");
-//		model = model.split(" ").join("+");
-//		
-//		model = model.split("-").join("+");
+        $scope.productName = $stateParams.productName.split(" ").join("+");
         $scope.productSection = $stateParams.section;
-    console.log($scope.productName);
         $scope.productDetails = {};
         $scope.show = function () {
             $ionicLoading.show({
@@ -198,11 +177,10 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('SearchProductCtrl', function ($scope, $stateParams, $http, USER, KEY, $ionicLoading, $location,$ionicPopup) {
+.controller('SearchProductCtrl', function ($scope, $stateParams, $http, USER, KEY, $ionicLoading, $location) {
         'use strict';
         $scope.productName = $stateParams.productName.split(" ").join("+");
         $scope.productDetails = {};
-        $scope.message ={};
         $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...'
@@ -212,16 +190,6 @@ angular.module('starter.controllers', [])
             $ionicLoading.hide();
         };
         $scope.show();
-     $scope.showAlert = function() {
-   var alertPopup = $ionicPopup.alert({
-     title: 'No Results Found!',
-     template: 'Sorry, We did\'nt find any products for your search'
-   });
-   alertPopup.then(function(res) {
-        $location.path("/app/home");
-     //console.log('Thank you');
-   });
- };
         $http({
             method: "get",
             url: "http://api.pricecheckindia.com/feed/product/all/" + $scope.productName + ".json",
@@ -230,16 +198,14 @@ angular.module('starter.controllers', [])
                 key : KEY
             }
         }).success(function (data) {
-            console.log(data.product);
+            console.log(data.product.length);
             if(data.product.length>1){
                 sessionStorage["productCategory"] = JSON.stringify(data.product);
                 $location.path("/app/browse");
-            } else if (data.product.length == 0){
-                $scope.showAlert();
-            } else{
+            }else{
                 $scope.productDetails = data.product[0];
             }
-            console.log($scope.message.message);
+
             $scope.hide();
         });
     })
@@ -269,14 +235,7 @@ angular.module('starter.controllers', [])
 
         if (productCategory != null && JSON != null) {
             try {
-                var data = JSON.parse(productCategory)
-                    for(var i=0;i<data.length;i++){
-                    if(data[i].stores.length == 0){
-                        data.splice(i,1);
-                    }
-                }
-                    $scope.productCategory = data;
-                
+                $scope.productCategory = JSON.parse(productCategory);
                 $scope.hide();
             } catch (err) {
             // ignore errors while loading...
@@ -292,11 +251,6 @@ angular.module('starter.controllers', [])
             }).success(function (data) {
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage["productCategory"] = JSON.stringify(data.product);
-                }
-                for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
-                    }
                 }
                 $scope.productCategory = data.product;
                 $scope.hide();

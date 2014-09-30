@@ -10,12 +10,14 @@
   </label>
 </div>
 
-    <div ng-show="product.model" class="card my-item" collection-repeat="product in productCategory | filter:search" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
+    <div  ng-show="product.model" class="card my-item" collection-repeat="product in productCategory | filter:search" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
+<!--        <div ng-if="product.stores.length > 0">-->
   <a href="#/app/products/{{product.brand }}+{{product.model}}&{{product.section}}">
   <div class="item item-text-wrap">
 
-<img ng-src="{{product.stores[0].image}}" class="card-image-size">
-
+<div ng-if="product.stores[0].image"><img ng-src="{{product.stores[0].image}}" class="card-image-size"></div>
+      
+<div ng-if="product.stores[0].image.length == 0"><img ng-src="{{product.stores[1].image}}" class="card-image-size"></div>
   </div>
          </a>
 
@@ -26,7 +28,7 @@
 </div>
 
   </div>
-
+<!--</div>-->
 </div>
 
   </ion-content>

@@ -6,11 +6,12 @@
       <div class="bar bar-header item-input-inset">
   <label class="item-input-wrapper">
     <i class="icon ion-ios7-search placeholder-icon"></i>
-    <input type="search" placeholder="Search any product">
+    <input type="search" placeholder="Search any product" ng-model="search">
   </label>
 </div>
-
-      <div  ng-show="product.model" class="card my-item" collection-repeat="product in productCategory" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
+ 
+      <div  ng-show="product.model" class="card my-item" collection-repeat="product in productCategory|filter:removeEmptyStore|filter:search" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
+                 
  <a href="#/app/products/{{product.brand }}+{{product.model}}&{{product.section}}">
   <div class="item item-text-wrap">
 
@@ -26,7 +27,6 @@
 </div>
 
   </div>
-
 </div>
 
   </ion-content>

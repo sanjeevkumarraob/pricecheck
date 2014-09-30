@@ -3,21 +3,35 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header page-bg">
+      
       <div class="search-home-container">
+          <form name="searchProductForm">
       <div class="list list-inset">
           <div class="item item-input-inset">
+              
+              <label class="item-input-wrapper">
+      <input type="text" placeholder="Search any product" ng-model="searchProduct">
+    </label>
+    <a class="button button-balanced button-small button-clear" type="submit" href="#/app/singleproduct/{{searchProduct}}">
+      <i class="icon ion-search"></i> Search
+    </a>
+<!--
           <label class="item-input">
-<!--    <i class="icon ion-search placeholder-icon"></i>-->
-    <input type="text" placeholder="Search any products" ng-model="searchProduct">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" >
       
   </label>
+-->
+<!--
               <a class="button button-clear pull-right" type="submit" href="#/app/singleproduct/{{searchProduct}}">
       <i class="icon ion-search"></i>
     </a>
+-->
           </div>
   
       
 </div>
+              </form>
           </div>
 
 

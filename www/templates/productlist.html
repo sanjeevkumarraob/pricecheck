@@ -43,7 +43,7 @@
      <ion-item class="item item-divider">
     Price List
     </ion-item>
-      <ion-item ng-repeat="store in productDetails.stores | orderBy : store.price" href="{{store.url}}" target="_blank" class="frosted-glass capitalize-text item item-icon-right">
+      <ion-item ng-repeat="store in productDetails.stores | orderBy : store.price" ng-click="openBrowser(store.url)" target="_blank" class="frosted-glass capitalize-text item item-icon-right">
 
 
           {{store.website}}

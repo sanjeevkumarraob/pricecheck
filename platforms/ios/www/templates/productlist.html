@@ -1,11 +1,14 @@
 <ion-view title="Product List">
  <ion-content class="has-header page-bg">
-  <div class="list card">
+     <div ng-if="message.errorMessage">
+         <h1>{{message.message}}</h1>
+     </div>
+  <div ng-if="!message.errorMessage" class="list card">
 
   <div class="item item-avatar">
     <img ng-src="{{productDetails.stores[0].image}}">
     <h2>{{productDetails.model}} {{productDetails.brand}}</h2>
-    <p>{{productDetails.section}}</p>
+    <p class="capitalize-text">{{productDetails.section | splitStrings}}</p>
   </div>
 
   <div class="item item-body">
@@ -35,18 +38,18 @@
 </div>
 
 
-     <div class="home-category-container">
+     <div ng-hide="message.errorMessage" class="home-category-container">
 <ion-list >
      <ion-item class="item item-divider">
     Price List
     </ion-item>
-      <ion-item ng-repeat="store in productDetails.stores" class="frosted-glass capitalize-text item item-icon-right">
+      <ion-item ng-repeat="store in productDetails.stores | orderBy : store.price" ng-click="openBrowser(store.url)" target="_blank" class="frosted-glass capitalize-text item item-icon-right">
 
 
           {{store.website}}
 
           <span class="item-note">
-              <button class="button button-balanced" ng-click="openBrowser(store.url)"> Rs. {{store.price }}</button>
+              <button class="button button-balanced"> Rs. {{store.price }}</button>
     </span>
 
       </ion-item>
