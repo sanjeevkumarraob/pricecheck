@@ -50,11 +50,11 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.filters'])
         }
       }
     })
-  .state('app.about', {
-      url: "/about",
+  .state('app.venue', {
+      url: "/venue",
       views: {
         'menuContent' :{
-          templateUrl: "templates/about.html"
+          templateUrl: "templates/venue.html"
         }
       }
     })
