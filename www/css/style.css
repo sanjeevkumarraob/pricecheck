@@ -143,3 +143,7 @@ position: relative;
 overflow: hidden;
 padding: 0.66667px;
 }
+
+.aside-open [menu-toggle] {
+  display: none;
+}
