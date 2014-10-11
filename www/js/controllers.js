@@ -114,14 +114,14 @@ angular.module('starter.controllers', [])
                   var newData = [];
                 for(var i=0;i<data.product.length;i++){
                     if(data.product[i].stores.length != 0){
-                       
+
                         newData.push(data.product[i]);
                     }
                 }
                 $scope.productCategory = newData;
                 $scope.hide();
             });
-            }            
+            }
         } else {
             $http({
                 method: "get",
@@ -137,7 +137,7 @@ angular.module('starter.controllers', [])
                  var newData = [];
                 for(var i=0;i<data.product.length;i++){
                     if(data.product[i].stores.length != 0){
-                       
+
                         newData.push(data.product[i]);
                     }
                 }
@@ -148,7 +148,7 @@ angular.module('starter.controllers', [])
         sessionStorage.setItem("productCategoryName", $scope.productCategoryName);
         $scope.getItemHeight = function (item, index) {
             //Make evenly indexed items be 10px taller, for the sake of example
-            var height = 100;
+            var height = 180;
             return height;
         };
         $scope.searcProducts = function (product) {
@@ -173,7 +173,7 @@ angular.module('starter.controllers', [])
         $scope.productName = $stateParams.productName.split(" - ").join("+").split(" ").join("+").split("-").join("+");
 //    model = model.split(" - ").join("+");
 //		model = model.split(" ").join("+");
-//		
+//
 //		model = model.split("-").join("+");
         $scope.productSection = $stateParams.section;
     console.log($scope.productName);
@@ -286,7 +286,7 @@ angular.module('starter.controllers', [])
                     }
                 }
                     $scope.productCategory = newData;
-                
+
                 $scope.hide();
             } catch (err) {
             // ignore errors while loading...
@@ -306,7 +306,7 @@ angular.module('starter.controllers', [])
                  var newData = [];
                 for(var i=0;i<data.product.length;i++){
                     if(data.product[i].stores.length != 0){
-                       
+
                         newData.push(data.product[i]);
                     }
                 }
@@ -316,7 +316,7 @@ angular.module('starter.controllers', [])
         }
         $scope.getItemHeight = function (item, index) {
             //Make evenly indexed items be 10px taller, for the sake of example
-            var height = 80;
+            var height = 180;
             return height;
         };
     });
