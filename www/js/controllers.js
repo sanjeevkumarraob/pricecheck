@@ -84,12 +84,17 @@ angular.module('starter.controllers', [])
             if(JSON.parse(productCategory)[0].section == $scope.productCategoryName){
                 try {
                     var data = JSON.parse(productCategory)
+                    var newData = [];
+                    console.log(data.length)
                     for(var i=0;i<data.length;i++){
-                    if(data[i].stores.length == 0){
-                        data.splice(i,1);
+                        console.log("data[i].stores.length >> " + data[i].brand+"  "+ data[i].model +"  "+ data[i].stores.length);
+                    if(data[i].stores.length != 0){
+                        newData.push(data[i]);
+                       // data.splice(i,1);
                     }
                 }
-                    $scope.productCategory = data;
+                    $scope.productCategory = newData;
+                    console.log(JSON.stringify(newData))
                     $scope.hide();
                 } catch (err) {
             // ignore errors while loading...
@@ -106,12 +111,14 @@ angular.module('starter.controllers', [])
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage["productCategory"] = JSON.stringify(data.product);
                 }
-                    for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
+                  var newData = [];
+                for(var i=0;i<data.product.length;i++){
+                    if(data.product[i].stores.length != 0){
+                       
+                        newData.push(data.product[i]);
                     }
                 }
-                $scope.productCategory = data.product;
+                $scope.productCategory = newData;
                 $scope.hide();
             });
             }            
@@ -127,19 +134,21 @@ angular.module('starter.controllers', [])
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage.setItem("productCategory", JSON.stringify(data.product));
                 }
+                 var newData = [];
                 for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
+                    if(data.product[i].stores.length != 0){
+                       
+                        newData.push(data.product[i]);
                     }
                 }
-                $scope.productCategory = data.product;
+                $scope.productCategory = newData;
                 $scope.hide();
             });
         }
         sessionStorage.setItem("productCategoryName", $scope.productCategoryName);
         $scope.getItemHeight = function (item, index) {
             //Make evenly indexed items be 10px taller, for the sake of example
-            var height = 180;
+            var height = 100;
             return height;
         };
         $scope.searcProducts = function (product) {
@@ -270,12 +279,13 @@ angular.module('starter.controllers', [])
         if (productCategory != null && JSON != null) {
             try {
                 var data = JSON.parse(productCategory)
+                 var newData = [];
                     for(var i=0;i<data.length;i++){
-                    if(data[i].stores.length == 0){
-                        data.splice(i,1);
+                    if(data[i].stores.length != 0){
+                       newData.push(data[i]);
                     }
                 }
-                    $scope.productCategory = data;
+                    $scope.productCategory = newData;
                 
                 $scope.hide();
             } catch (err) {
@@ -293,18 +303,20 @@ angular.module('starter.controllers', [])
                 if (sessionStorage != null && JSON != null) {
                     sessionStorage["productCategory"] = JSON.stringify(data.product);
                 }
+                 var newData = [];
                 for(var i=0;i<data.product.length;i++){
-                    if(data.product[i].stores.length == 0){
-                        data.product.splice(i,1);
+                    if(data.product[i].stores.length != 0){
+                       
+                        newData.push(data.product[i]);
                     }
                 }
-                $scope.productCategory = data.product;
+                $scope.productCategory = newData;
                 $scope.hide();
             });
         }
         $scope.getItemHeight = function (item, index) {
             //Make evenly indexed items be 10px taller, for the sake of example
-            var height = 180;
+            var height = 80;
             return height;
         };
     });

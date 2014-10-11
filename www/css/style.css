@@ -8,7 +8,7 @@ body{
  * Header
  */
 #header {
-  background-color: transparent !important;
+/*  background-color: transparent !important;*/
   height: 44px;
 }
 
@@ -154,4 +154,16 @@ padding: 0.66667px;
 
 .aside-open [menu-toggle] {
   display: none;
+}
+.my-image-item img { height: 33%; width: 33%; }
+
+.thumbnail-image {
+    {
+position: absolute;
+top: 10px;
+left: 10px;
+max-width: 80px;
+max-height: 80px;
+
+}
 }
