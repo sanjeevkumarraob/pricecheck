@@ -32,29 +32,30 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.filters'])
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     })
-  
+
   .state('app.events', {
       url: "/events",
       views: {
         'menuContent' :{
           templateUrl: "templates/events.html",
-            
+
         }
       }
     })
-  .state('app.sessions', {
-      url: "/sessions",
+  .state('app.favourites', {
+      url: "/favourites",
       views: {
         'menuContent' :{
-          templateUrl: "templates/sessions.html"
+          templateUrl: "templates/favourites.html",
+          controller: "FavouritesCtrl"
         }
       }
     })
-  .state('app.venue', {
-      url: "/venue",
+  .state('app.about', {
+      url: "/about",
       views: {
         'menuContent' :{
-          templateUrl: "templates/venue.html"
+          templateUrl: "templates/about.html"
         }
       }
     })
@@ -94,13 +95,13 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.filters'])
         }
       }
     })
-  
+
   .state('app.productname', {
-      url: "/singleproduct/:productName",
+      url: "/singleproduct",
       views: {
         'menuContent' :{
             templateUrl: "templates/search.html",
-          controller: 'SearchProductCtrl'
+            controller: "SearchProductCtrl"
         }
       }
     })
@@ -117,4 +118,3 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.filters'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
-

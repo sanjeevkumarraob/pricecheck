@@ -1,2 +1,2 @@
-C:\Users\m1026617\Documents\projects\ionic-apps\pricecheck\platforms\android\CordovaLib\ant-build\AndroidManifest.xml : \
-C:\Users\m1026617\Documents\projects\ionic-apps\pricecheck\platforms\android\CordovaLib\AndroidManifest.xml \
+/Users/sanjeevkumar/Documents/ionic-apps/pricecheck/platforms/android/CordovaLib/ant-build/AndroidManifest.xml : \
+/Users/sanjeevkumar/Documents/ionic-apps/pricecheck/platforms/android/CordovaLib/AndroidManifest.xml \

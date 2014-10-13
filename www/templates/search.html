@@ -11,25 +11,25 @@
   <div class="item item-body">
    <img class="full-image" ng-src="{{productDetails.stores[1].image}}">
       <p><h2>{{productDetails.model}} {{productDetails.brand}}</h2></p>
-    <p>
+    <!-- <p>
       <a href="#" class="subdued">1 Like</a>
       <a href="#" class="subdued">5 Comments</a>
-    </p>
+    </p> -->
   </div>
 
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#">
-      <i class="icon ion-thumbsup"></i>
-      Like
+  <div class="item tabs tabs-secondary tabs-icon-left" ng-hide="hideheart">
+    <a class="tab-item" ng-click='addToFavourites(productDetails)'>
+      <i class="icon" ng-class="favouriteicon"></i>
+      {{favouriteString}}
     </a>
-    <a class="tab-item" href="#">
+    <!-- <a class="tab-item" href="#">
       <i class="icon ion-chatbox"></i>
       Comment
     </a>
     <a class="tab-item" href="#">
       <i class="icon ion-share"></i>
       Share
-    </a>
+    </a> -->
   </div>
 
 </div>

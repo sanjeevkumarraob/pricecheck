@@ -2,7 +2,7 @@
     <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content padding="true" class="hotel-page" class="has-header">
+  <ion-content padding="true" class="hotel-page" class="has-header" ng-controller="AppCtrl">
     <div class="card">
   <div class="item item-text-wrap">
     <p>
@@ -10,12 +10,12 @@
     </p>
       <br>
       <p>Powered by
-          
-      <a href="http://www.pricecheckindia.com/" target="_blank"><img src="../img/pricechecklogo.gif" class="image-center"></a>
+
+      <img src="img/pricechecklogo.gif" class="image-center" ng-click="openBrowser('http://www.pricecheckindia.com')">
       </p>
   </div>
 </div>
-    
-      
+
+
 </ion-content>
 </ion-view>

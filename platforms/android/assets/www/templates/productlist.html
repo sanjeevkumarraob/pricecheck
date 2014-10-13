@@ -1,46 +1,49 @@
 <ion-view title="Product List">
  <ion-content class="has-header page-bg">
-  <div class="list card">
+     <div ng-if="message.errorMessage">
+         <h1>{{message.message}}</h1>
+     </div>
+  <div ng-if="!message.errorMessage" class="list card">
 
   <div class="item item-avatar">
     <img ng-src="{{productDetails.stores[0].image}}">
     <h2>{{productDetails.model}} {{productDetails.brand}}</h2>
-    <p>{{productDetails.section}}</p>
+    <p class="capitalize-text">{{productDetails.section | splitStrings}}</p>
   </div>
 
   <div class="item item-body">
    <img class="full-image" ng-src="{{productDetails.stores[1].image}}">
       <p><h2>{{productDetails.model}} {{productDetails.brand}}</h2></p>
-    <p>
+    <!-- <p>
       <a href="#" class="subdued">1 Like</a>
       <a href="#" class="subdued">5 Comments</a>
-    </p>
+    </p> -->
   </div>
 
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#">
-      <i class="icon ion-thumbsup"></i>
-      Like
+  <div class="item tabs tabs-secondary tabs-icon-left" ng-hide="hideheart">
+    <a class="tab-item" ng-click='addToFavourites(productDetails)'>
+      <i class="icon" ng-class="favouriteicon"></i>
+      {{favouriteString}}
     </a>
-    <a class="tab-item" href="#">
+    <!-- <a class="tab-item" href="#">
       <i class="icon ion-chatbox"></i>
       Comment
     </a>
     <a class="tab-item" href="#">
       <i class="icon ion-share"></i>
       Share
-    </a>
+    </a> -->
   </div>
 
 </div>
 
 
-     <div class="home-category-container">
+     <div ng-hide="message.errorMessage" class="home-category-container">
 <ion-list >
      <ion-item class="item item-divider">
     Price List
     </ion-item>
-      <ion-item ng-repeat="store in productDetails.stores" href="{{store.url}}" target="_blank" class="frosted-glass capitalize-text item item-icon-right">
+      <ion-item ng-repeat="store in productDetails.stores | orderBy : store.price" ng-click="openBrowser(store.url)" target="_blank" class="frosted-glass capitalize-text item item-icon-right">
 
 
           {{store.website}}

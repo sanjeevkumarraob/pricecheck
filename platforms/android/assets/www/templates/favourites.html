@@ -1,0 +1,43 @@
+<ion-view title="Favourites">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-gear-a" ng-click="data.showReorder = !data.showReorder"></button>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios7-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model="search">
+  </label>
+
+</div>
+  <ion-content class="has-header">
+  <ion-list  ng-show="product.model" class="list my-item" ng-repeat="product in productCategory | filter:search" show-reorder="data.showReorder"
+          can-swipe="true">
+<!--        <div ng-if="product.stores.length > 0">-->
+
+<ion-item class="item item-thumbnail-left item-icon-right positive" href="#/app/products/{{product.brand }}+{{product.model}}&{{product.section}}">
+    <img ng-if="product.stores[0].image.length==0 && product.stores[1].image.length==0" src="../img/product_image_not_available.gif" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length==0 && product.stores.length==1" src="../img/product_image_not_available.gif" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length!=0" ng-src="{{product.stores[0].image}}" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length==0" ng-src="{{product.stores[1].image}}" class="thumbnail-image">
+
+      <h2 class="positive">{{product.brand}}</h2>
+  <p >{{product.model}}</p>
+   <i class="icon icon-right"></i>
+   <ion-option-button class="button-assertive"
+                       ng-click="delete(product)">
+      Delete
+    </ion-option-button>
+
+    <ion-reorder-button class="ion-navicon"
+                        on-reorder="reorderItem(product, $fromIndex, $toIndex)">
+    </ion-reorder-button>
+      </ion-item>
+    </ion-list>
+
+
+  </ion-content>
+</ion-view>

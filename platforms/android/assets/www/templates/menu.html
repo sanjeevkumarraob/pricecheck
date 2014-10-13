@@ -7,19 +7,19 @@
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
-  <ion-side-menu side="left">
+  <ion-side-menu side="left" expose-aside-when="large">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Settings</h1>
     </header>
-    <ion-content class="has-header">
+    <ion-content class="has-header" ng-controller="CategoriesCtrl">
       <ion-list>
           <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/home">
          <i class="icon ion-home"></i> Home
         </ion-item>
-<!--
            <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/browse">
          <i class="icon ion-grid"></i> Browse
         </ion-item>
+          <!--
 
            <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/events">
          <i class="icon ion-calendar"></i> Attendance
@@ -28,8 +28,8 @@
           <i class="icon ion-monitor"></i> My Stats
         </ion-item>
 -->
-        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/venue">
-          <i class="icon ion-settings"></i> App Settings
+        <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/about">
+          <i class="icon ion-information-circled"></i> About App
         </ion-item>
 <!--
         <ion-item class="item item-icon-left" nav-clear menu-close href="#/app/social">
@@ -45,7 +45,20 @@
           <i class="icon ion-heart"></i> Favourites
         </ion-item>
 
+
       </ion-list>
+      <div class="home-category-container">
+ <ion-list >
+      <ion-item class="item bar bar-dark">
+     <h1 class="title">Categories</h1>
+     </ion-item>
+     <ion-scroll zooming="false" direction="y" style="height: 300px">
+       <ion-item  nav-clear menu-close ng-repeat="category in categories" href="#/app/category/{{category}}" class="frosted-glass capitalize-text scroll-list" ng-click="toggleLeft">
+         {{category | splitStrings}}
+       </ion-item>
+     </ion-scroll>
+     </ion-list>
+           </div>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

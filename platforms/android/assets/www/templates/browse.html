@@ -2,32 +2,29 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header">
-      <div class="bar bar-header item-input-inset">
+  <div class="bar bar-subheader item-input-inset">
   <label class="item-input-wrapper">
     <i class="icon ion-ios7-search placeholder-icon"></i>
-    <input type="search" placeholder="Search any product">
+    <input type="search" placeholder="Search" ng-model="search">
   </label>
-</div>
-
-      <div  ng-show="product.model" class="card my-item" collection-repeat="product in productCategory" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
- <a href="#/app/products/{{product.brand }}+{{product.model}}&{{product.section}}">
-  <div class="item item-text-wrap">
-
-<img ng-src="{{product.stores[0].image}}" class="card-image-size">
-
-  </div>
-         </a>
-          
-  <div class="item item-divider">
-     <div class="row">
-  <div class="col">{{product.model}}</div>
-  <div class="col">{{product.brand}}</div>
-</div>
-
-  </div>
 
 </div>
+  <ion-content class="has-header">
+  <ion-list  ng-show="product.model" class="list my-item" collection-repeat="product in productCategory | filter:search" collection-item-width="'100%'" collection-item-height="getItemHeight(product, $index)" ng-style="{height: getItemHeight(product, $index)}">
+<!--        <div ng-if="product.stores.length > 0">-->
+
+<ion-item class="item item-thumbnail-left item-icon-right positive" href="#/app/products/{{product.brand }}+{{product.model}}&{{product.section}}">
+    <img ng-if="product.stores[0].image.length==0 && product.stores[1].image.length==0" src="../img/product_image_not_available.gif" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length==0 && product.stores.length==1" src="../img/product_image_not_available.gif" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length!=0" ng-src="{{product.stores[0].image}}" class="thumbnail-image">
+    <img ng-if="product.stores[0].image.length==0" ng-src="{{product.stores[1].image}}" class="thumbnail-image">
+
+      <h2 class="positive">{{product.brand}}</h2>
+  <p >{{product.model}}</p>
+   <i class="icon icon-right"></i>
+      </ion-item>
+    </ion-list>
+
 
   </ion-content>
 </ion-view>
