@@ -4,23 +4,23 @@
   </ion-nav-buttons>
   <ion-content class="has-header page-bg">
 
-      <div class="search-home-container">
+    <div class="search-home-container">
 
-        <form ng-submit="searchProduct()">
-          <div class="list">
-            <label class="item item-input">
-  <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search any product" ng-model="search.product">
-  </label>
+      <form ng-submit="searchProduct()">
+        <div class="list">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search any product" ng-model="search.product">
+          </label>
 
-          </div>
+        </div>
 
-            <button class="button button-block button-positive" type="submit"><i class="icon ion-search"></i> Search</button>
+        <button class="button button-block button-small button-balanced" type="submit"> Search</button>
 
-        </form>
+      </form>
 
 
-          <!-- <form name="searchProductForm">
+      <!-- <form name="searchProductForm">
       <div class="list list-inset">
           <div class="item item-input-inset">
 
@@ -38,19 +38,19 @@
 
 </div>
               </form> -->
-          </div>
+    </div>
 
 
-     <!-- <div class="home-category-container">
-<ion-list >
-     <ion-item class="item item-divider">
-    Categories
-    </ion-item>
-      <ion-item ng-repeat="category in categories" href="#/app/category/{{category}}" class="frosted-glass capitalize-text scroll-list">
-        {{category | splitStrings}}
-      </ion-item>
-    </ion-list>
-          </div> -->
+    <div class="home-category-container">
+      <ion-list>
+        <ion-item class="item item-divider">
+          Categories
+        </ion-item>
+        <ion-item ng-repeat="category in categories" href="#/app/category/{{category}}" class="frosted-glass capitalize-text scroll-list">
+          {{category | splitStrings}}
+        </ion-item>
+      </ion-list>
+    </div>
 
 
 

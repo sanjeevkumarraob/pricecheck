@@ -28,6 +28,7 @@ public class PriceCheck extends CordovaActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        super.setIntegerProperty("splashscreen", R.drawable.screen);
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
     }

@@ -3,7 +3,7 @@
   // this function is strict...
 }());
 angular.module('starter.controllers', [])
-  .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  .controller('AppCtrl', function($scope, $ionicPlatform, $ionicModal, $timeout) {
     // Form data for the login modal
     'use strict';
     $scope.loginData = {};
@@ -39,6 +39,18 @@ angular.module('starter.controllers', [])
     $scope.openBrowser = function(url) {
       var ref = window.open(url, '_system');
     };
+
+    // Disable BACK button on home
+    $ionicPlatform.registerBackButtonAction(function(event) {
+      if ($state.current.name == "app.home") {
+        navigator.app.exitApp();
+      } else {
+        event.preventDefault();
+        event.stopPropagation();
+        //alert("you clicked back button");
+      }
+    }, 100);
+
   })
 
 .controller('CategoriesCtrl', function($scope, $http, $q, $ionicSideMenuDelegate, USER, KEY, $ionicLoading, $location, $ionicPopup) {

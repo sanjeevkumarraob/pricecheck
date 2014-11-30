@@ -93,7 +93,10 @@ body{
 }
 
 .search-home-container {
-    padding: 60px 30px;
+  margin:0 auto;
+padding-top:30px;
+    width:70%;
+    
 }
 
 .home-category-container{

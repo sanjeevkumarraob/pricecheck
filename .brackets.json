@@ -4,6 +4,9 @@
         "/Users/sanjeevkumar/Documents/ionic-apps/avisbdg/platforms/ios/build/emulator/HelloCordova.app/www/lib/ionic/js/angular/angular.js",
         "C:/Users/m1026617/Documents/projects/ionic-apps/avisbdg/platforms/android/cordova/node_modules/shelljs/src/find.js",
         "C:/Users/m1026617/Documents/projects/ionic-apps/pricecheck/platforms/ios/www/plugins/org.apache.cordova.device/www/device.js",
-        "C:/Users/m1026617/Documents/projects/ionic-apps/pricecheck/www/js/controllers.js"
+        "C:/Users/m1026617/Documents/projects/ionic-apps/pricecheck/www/js/controllers.js",
+        "/Users/sanjeevkumar/Documents/ionic-apps/pricecheck/platforms/ios/www/plugins/org.apache.cordova.device/www/device.js",
+        "/Users/sanjeevkumar/Documents/ionic-apps/pricecheck/platforms/android/assets/www/lib/ionic/js/ionic-angular.min.js",
+        "/Users/sanjeevkumar/Documents/ionic-apps/pricecheck/www/js/app.js"
     ]
 }
